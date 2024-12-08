@@ -1,6 +1,6 @@
 namespace AdventOfCode;
 
-public class Day1
+public class Day1 : DayGeneric
 {
     public static string Name = "-- Day 1: Historian Hysteria --";
     static List<List<int>> nums = new List<List<int>>();

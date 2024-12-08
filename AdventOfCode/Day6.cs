@@ -1,6 +1,6 @@
 namespace AdventOfCode;
 
-public class Day6
+public class Day6 : DayGeneric
 {
     public static string Name = "-- Day 6: Guard Gallivant --";
 
@@ -33,7 +33,7 @@ public class Day6
         var (moveCount, steps) = Move(Directions.Up, startingRow, startingCol, new HashSet<(int, int, Directions)>());
         SolvePart2(steps);
         
-        GenerateOutput();
+        GenerateMapOutput(areaMap);
         Console.WriteLine($"Covered {moveCount} unique tiles.");
         Console.WriteLine($"Detected {loopCount} unique ways of making infinite loops.");
     }
@@ -187,16 +187,5 @@ public class Day6
         }
         
         return (-1, -1);
-    }
-
-    public static void GenerateOutput()
-    {
-        List<string> finishedMap = new();
-        for (int i = 0; i < areaMap.Length; i++)
-        {
-            string s = new string(areaMap[i]);
-            finishedMap.Add(s);
-        }
-        File.WriteAllLines("C:/Users/noahb/Documents/AoC2024/output.txt", finishedMap.ToArray());
     }
 }

@@ -1,6 +1,6 @@
 namespace AdventOfCode;
 
-public class Day4
+public class Day4 : DayGeneric
 {
     public static string Name = "-- Day 4: Ceres Search --";
     static char[][] wordSearch;

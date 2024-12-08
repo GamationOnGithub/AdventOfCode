@@ -1,6 +1,6 @@
 namespace AdventOfCode;
 
-public class Day8
+public class Day8 : DayGeneric
 {
     public static string Name = "-- Day 8: Resonant Collinearity --";
 
@@ -12,7 +12,9 @@ public class Day8
         areaMap = areaMapUnparsed.Select(s => s.ToCharArray()).ToArray();
         Dictionary<char, List<(int x, int y)>> frequencies = FindFrequencies();
         int uniqueAntinodes = PlaceAntinodes(frequencies, false);
+        GenerateMapOutput(areaMap, "output1");
         int uniqueAntinodesOnLine = PlaceAntinodes(frequencies, true);
+        GenerateMapOutput(areaMap, "output2");
         
         Console.WriteLine($"Found {uniqueAntinodes} unique antinode positions.");
         Console.WriteLine($"Found {uniqueAntinodesOnLine} unique antinode positions with respect to each full line.");

@@ -1,6 +1,6 @@
 namespace AdventOfCode;
 
-public class Day2
+public class Day2 : DayGeneric
 {
     public static string Name = "-- Day 2: Red-Nosed Reports --";
     

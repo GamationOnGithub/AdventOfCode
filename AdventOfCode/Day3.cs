@@ -2,7 +2,7 @@ using System.Text.RegularExpressions;
 
 namespace AdventOfCode;
 
-public class Day3
+public class Day3 : DayGeneric
 {
     public static string Name = "-- Day 3: Mull It Over --";
     

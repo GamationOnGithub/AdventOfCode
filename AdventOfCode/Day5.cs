@@ -1,6 +1,6 @@
 namespace AdventOfCode;
 
-public class Day5
+public class Day5 : DayGeneric
 {
     public static string Name = "-- Day 5: Print Queue --";
     
