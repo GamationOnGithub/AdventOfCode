@@ -8,8 +8,8 @@ public class Day8 : DayGeneric
 
     public static void Day8Main()
     {
-        string[] areaMapUnparsed = File.ReadAllLines(Client.filePrefix + "Day 8 - ResonantCollinearity.txt");
-        areaMap = areaMapUnparsed.Select(s => s.ToCharArray()).ToArray();
+        areaMap = ParseInputAsMap("Day 8 - ResonantCollinearity.txt");
+        
         Dictionary<char, List<(int x, int y)>> frequencies = FindFrequencies();
         int uniqueAntinodes = PlaceAntinodes(frequencies, false);
         GenerateMapOutput(areaMap, "output1");

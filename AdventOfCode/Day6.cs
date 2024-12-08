@@ -26,8 +26,7 @@ public class Day6 : DayGeneric
 
     public static void Day6Main()
     {
-        string[] areaMapUnparsed = File.ReadAllLines(Client.filePrefix + "Day 6 - GuardGallivant.txt");
-        areaMap = areaMapUnparsed.Select(s => s.ToCharArray()).ToArray();
+        areaMap = ParseInputAsMap("Day 6 - GuardGallivant.txt");
         (startingRow, startingCol) = FindStart();
 
         var (moveCount, steps) = Move(Directions.Up, startingRow, startingCol, new HashSet<(int, int, Directions)>());

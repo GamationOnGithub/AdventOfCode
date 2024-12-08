@@ -19,4 +19,11 @@ public class DayGeneric
         }
         File.WriteAllLines($"{Client.filePrefix}{filename}.txt", finishedMap.ToArray());
     }
+
+    public static char[][] ParseInputAsMap(string filename)
+    {
+        string[] areaMapUnparsed = File.ReadAllLines(Client.filePrefix + filename);
+        char[][] areaMap = areaMapUnparsed.Select(s => s.ToCharArray()).ToArray();
+        return areaMap;
+    }
 }
