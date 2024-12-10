@@ -1,13 +1,13 @@
 namespace AdventOfCode;
 
-public class Day10
+public class Day10 : DayGeneric
 {
     public static string Name = "-- Day 10: Hoof It --";
     static List<(int row, int col)> queue = new(); 
 
     public static void Day10Main()
     {
-        int[,] areaMap = DayGeneric.ParseInputAsIntMap("Day 10 - HoofIt.txt");
+        int[,] areaMap = ParseInputAsIntMap("Day 10 - HoofIt.txt");
         int trailCount = CountTrails(areaMap, false);
         int totalDistance = CountTrails(areaMap, true);
         
