@@ -8,7 +8,7 @@ public class Day8 : DayGeneric
 
     public static void Day8Main()
     {
-        areaMap = ParseInputAsMap("Day 8 - ResonantCollinearity.txt");
+        areaMap = ParseInputAsMap("Day 8 - ResonantCollinearity.txt", '_');
         
         Dictionary<char, List<(int x, int y)>> frequencies = FindFrequencies();
         int uniqueAntinodes = PlaceAntinodes(frequencies, false);

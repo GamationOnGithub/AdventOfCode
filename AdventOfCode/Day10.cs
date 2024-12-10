@@ -7,7 +7,7 @@ public class Day10 : DayGeneric
 
     public static void Day10Main()
     {
-        int[,] areaMap = ParseInputAsIntMap("Day 10 - HoofIt.txt");
+        int[,] areaMap = ParseInputAsMap("Day 10 - HoofIt.txt", 0);
         int trailCount = CountTrails(areaMap, false);
         int totalDistance = CountTrails(areaMap, true);
         
