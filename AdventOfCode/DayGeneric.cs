@@ -26,4 +26,21 @@ public class DayGeneric
         char[][] areaMap = areaMapUnparsed.Select(s => s.ToCharArray()).ToArray();
         return areaMap;
     }
+    
+    public static int[,] ParseInputAsIntMap(string filename)
+    {
+        // TODO: This sucks. Make it better with generics later
+        string[] areaMapUnparsed = File.ReadAllLines(Client.filePrefix + filename);
+        char[][] areaMapChars = areaMapUnparsed.Select(s => s.ToCharArray()).ToArray();
+        int[,] areaMap = new int[areaMapChars.Length, areaMapChars[0].Length];
+        for (int i = 0; i < areaMapChars.Length; i++)
+        {
+            for (int j = 0; j < areaMapChars[i].Length; j++)
+            {
+                areaMap[i, j] = int.Parse(areaMapChars[i][j].ToString());
+            }
+        }
+
+        return areaMap;
+    }
 }
