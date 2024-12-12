@@ -61,7 +61,7 @@ public class Day2 : DayGeneric
             if (CheckSafety(copy)) return true;
         }
         
-        // Nope, no matter what index we remove it's fucked, cool
+        // Nope, no matter what index we remove we're screwed, cool
         return false;
     }
 }
