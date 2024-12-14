@@ -64,6 +64,92 @@ public class DayGeneric
         return paddedMap;
     }
     
+    // -- MATH --
+
+    public static double[,] RowReduce(double[,] matrix, float tolerance)
+    {
+        int pivotRow = 0;
+        int pivotCol = 0;
+
+        // Row reduction algorithm adapted from wikipedia
+        while (pivotRow < matrix.GetLength(0) - 1 && pivotCol < matrix.GetLength(1) - 1)
+        {
+            // Find the next pivot
+            int largestIndex = 0;
+            for (int i = pivotRow; i < matrix.GetLength(0); i++)
+            {
+                if (matrix[i, pivotCol] > matrix[largestIndex, pivotCol])
+                {
+                    largestIndex = i;
+                }
+            }
+            
+            // If true, this is a column of all zeros and thus not a pivot
+            if (matrix[largestIndex, pivotCol] == 0) pivotCol++;
+            else
+            {
+                for (int i = pivotRow + 1; i < matrix.GetLength(0); i++)
+                {
+                    // Calculate the scaling factor required to cancel out the row below
+                    double scalar = matrix[i, pivotCol] / matrix[pivotRow, pivotCol];
+                    // Very slightly more efficient to set this to 0 rather than doing math
+                    matrix[i, pivotCol] = 0;
+                    // Add the correctly scaled value to the other columns
+                    for (int j = pivotCol + 1; j < matrix.GetLength(1); j++)
+                    {
+                        matrix[i, j] -= matrix[pivotRow, j] * scalar;
+                    }
+                }
+            }
+        }
+        
+        // Now correct for float imprecision
+        for (int i = 0; i < matrix.GetLength(0); i++)
+        {
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                if (Math.Abs(matrix[i, j] - Math.Floor(matrix[i, j])) < tolerance) matrix[i, j] = Math.Floor(matrix[i, j]);
+                else if (Math.Abs(Math.Ceiling(matrix[i, j]) - matrix[i, j]) < tolerance) matrix[i, j] = Math.Ceiling(matrix[i, j]);
+            }
+        }
+        
+        return matrix;
+    }
+
+    public static double[,] rref(double[,] matrix, float tolerance)
+    {
+        matrix = RowReduce(matrix, tolerance);
+        
+        int pivotRow = 0;
+        int pivotCol = 0;
+        
+        // Finding the final pivot is a little trickier
+        // After row reduction it must be in either the last row or last column depending on the dimensions of the matrix
+        // First the easy square case:
+        if (matrix.GetLength(0) == matrix.GetLength(1))
+        {
+            pivotRow = matrix.GetLength(0) - 1;
+            pivotCol = matrix.GetLength(1) - 1;
+        }
+        // Then, if we have more rows than columns, it must be in the final column
+        if (matrix.GetLength(0) > matrix.GetLength(1))
+        {
+            pivotCol = matrix.GetLength(1) - 1;
+            pivotRow = matrix.GetLength(1) - 1;
+        }
+        // And if we have more columns than rows, it must be in the final row
+        if (matrix.GetLength(0) < matrix.GetLength(1))
+        {
+            pivotRow = matrix.GetLength(0) - 1;
+            pivotCol = matrix.GetLength(1) - 1;
+        }
+        
+        // TODO: finish this
+        return matrix;
+    }
+
+    
+    
     // TODO: Fix this
     /*
     public static char[][] PadMap(char[][] map, char padding)

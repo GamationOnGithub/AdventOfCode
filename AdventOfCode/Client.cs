@@ -4,7 +4,7 @@ namespace AdventOfCode;
 
 public class Client
 {
-    public static string filePrefix = "[Removed for GitHub Upload]";
+    public static string filePrefix = "D:/AdventOfCode/Inputs/";
     
     public static void Main(string[] args)
     {

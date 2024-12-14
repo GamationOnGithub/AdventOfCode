@@ -4,3 +4,5 @@ AdventOfCode/bin
 AdventOfCode.sln.DotSettings.user
 /.idea
 AdventOfCode/Client.cs
+/Inputs
+/.vs
