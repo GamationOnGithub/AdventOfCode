@@ -13,7 +13,7 @@ public class Day16 : DayGeneric
     {
         char[,] map = ParseInput("Day 16 - ReindeerMaze.txt");
         var ((startRow, startCol), (endRow, endCol)) = FindTargets(map);
-        (int score, int uniquePoints) = Djikstra(map, startRow, startCol, endRow, endCol);
+        (int score, int uniquePoints) = Dijkstra(map, startRow, startCol, endRow, endCol);
         Console.WriteLine($"Solved the reindeer race with a lowest score of {score}.");
         Console.WriteLine($"{uniquePoints} unique points lie upon the fastest routes.");
     }
@@ -58,7 +58,7 @@ public class Day16 : DayGeneric
         return ((startRow, startCol), (endRow, endCol));
     }
 
-    public static (int, int) Djikstra(char[,] map, int startRow, int startCol, int endRow, int endCol)
+    public static (int, int) Dijkstra(char[,] map, int startRow, int startCol, int endRow, int endCol)
     {
         // Welcome to tuple hell
         PriorityQueue<(int dist, (int row, int col) pos, Directions dir, List<(int row, int col)> path), int> queue = new();
