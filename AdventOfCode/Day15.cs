@@ -229,14 +229,6 @@ public class Day15 : DayGeneric
     public static List<Directions> moves = new List<Directions>();
     public static List<BigBox> bigBoxes = new List<BigBox>();
 
-    public enum Directions
-    {
-        Up, 
-        Down, 
-        Left, 
-        Right
-    };
-
     public static void Day15Main()
     {
         string[] input = File.ReadAllLines(Client.filePrefix + "Day 15 - WarehouseWoes.txt");

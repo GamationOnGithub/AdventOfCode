@@ -4,9 +4,6 @@ namespace AdventOfCode;
 
 public class Day16 : DayGeneric
 {
-    
-    public enum Directions { Up, Down, Left, Right, None }
-    
     public static string Name = "-- Day 16: Reindeer Maze -- ";
     
     public static void Day16Main()

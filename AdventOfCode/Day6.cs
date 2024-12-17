@@ -9,7 +9,7 @@ public class Day6 : DayGeneric
     private static int startingRow = 0;
     private static int startingCol = 0;
 
-    public enum Directions
+    public new enum Directions
     {
         Up = 0, 
         Right = 1, 

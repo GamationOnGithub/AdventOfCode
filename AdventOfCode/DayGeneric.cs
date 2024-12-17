@@ -4,6 +4,8 @@ public class DayGeneric
 {
     public static string Name = "-- Day 0: The Generic Day --";
 
+    public enum Directions { Up, Down, Left, Right, None }
+    
     public static void DayMain()
     {
         Console.WriteLine("You're in the generic class. Try an actual day.");
