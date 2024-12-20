@@ -66,6 +66,14 @@ public class DayGeneric
         return paddedMap;
     }
     
+    public static IEnumerable<(int dRow, int dCol)> GetAdjacent()
+    {
+        yield return (1, 0);
+        yield return (0, 1);
+        yield return (-1, 0);
+        yield return (0, -1);
+    }
+    
     // -- MATH --
 
     public static double[,] RowReduce(double[,] matrix, float tolerance)
