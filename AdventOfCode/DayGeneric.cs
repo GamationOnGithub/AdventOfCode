@@ -74,6 +74,15 @@ public class DayGeneric
         yield return (0, -1);
     }
     
+    // From StackOverflow https://stackoverflow.com/a/64999074
+    public static IEnumerable<T[]> GetCombinations<T>(List<T> source)
+    {
+        for (var i = 0; i < (1 << source.Count); i++)
+            yield return source
+                .Where((t, j) => (i & (1 << j)) != 0)
+                .ToArray();
+    }
+    
     // -- MATH --
 
     public static double[,] RowReduce(double[,] matrix, float tolerance)
