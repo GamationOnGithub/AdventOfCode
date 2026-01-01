@@ -8,18 +8,21 @@ public class Client
     
     public static void Main(string[] args)
     {
-        Console.WriteLine("Welcome to Advent of Code 2024!");
-        Console.Write("Choose a day to display results from: ");
+        Console.WriteLine("Welcome to Advent of Code!");
+        Console.Write("Choose a year and day (space separated) to display results from: ");
         string? input = Console.ReadLine();
         
         while (input != "exit" && input != "")
         {
-            int day = int.Parse(input);
+            string[] inputs = input.Split(' ');
+            int year = int.Parse(inputs[0]);
+            int day = int.Parse(inputs[1]);
             
             Console.WriteLine();
             try
             {
-                Type t = Type.GetType("AdventOfCode.Day" + day);
+                string file = (year == 2024) ? "" : "_" + year.ToString();
+                Type t = Type.GetType("AdventOfCode.Day" + day + file);
                 Console.WriteLine(t.GetField("Name").GetValue(null).ToString());
                 t.GetMethod("Day" + day + "Main").Invoke(null, null);
 
